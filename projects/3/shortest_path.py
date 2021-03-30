@@ -73,7 +73,7 @@ while i < 10:
 res = paths.filter(lambda x: x[0] == end_point).collect()
 logging.info(f"Time elapsed: {datetime.datetime.now() - start}")
 
-with open('result.csv','w') as f:
+with open('/home/users/vova-cmc/ozon-masters-bigdata/result.csv','w') as f:
     for el in res:
         f.write(','.join(el[1]) + '\n')
 os.system('hdfs dfs -mkdir -p /user/vova-cmc/vova-cmc_'+output_dir)
