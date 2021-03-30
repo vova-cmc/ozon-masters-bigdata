@@ -76,6 +76,6 @@ logging.info(f"Time elapsed: {datetime.datetime.now() - start}")
 with open('result.csv','w') as f:
     for el in res:
         f.write(','.join(el[1]) + '\n')
-os.system('hdfs dfs -mkdir -p /user/vova-cmc/'+output_dir)
-os.system('hdfs dfs -copyFromLocal -f result.csv /user/vova-cmc/'+output_dir+'/result.csv')
+os.system('hdfs dfs -mkdir -p /user/vova-cmc/vova-cmc_'+output_dir)
+os.system('hdfs dfs -copyFromLocal -f result.csv /user/vova-cmc/vova-cmc_'+output_dir+'/result.csv')
 sc.stop()
