@@ -80,7 +80,7 @@ with open('/tmp/vova-cmc_'+output_dir,'w') as f:
 #os.system('hdfs dfs -appendToFile - /user/vova-cmc/vova-cmc_'+output_dir+'/result.csv')
 #os.system('hdfs dfs -appendToFile - /user/vova-cmc/vova-cmc_'+output_dir)
 
-os.system('hdfs dfs -copyFromLocal -f /tmp/vova-cmc_' + output_dir + ' /user/vova-cmc/vova-cmc_'+output_dir)
+os.system('hdfs dfs -copyFromLocal -f /tmp/vova-cmc_' + output_dir + ' /user/vova-cmc/'+output_dir)
 os.system('rm /tmp/vova-cmc_' + output_dir)
 
 sc.stop()
