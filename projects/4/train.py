@@ -3,8 +3,6 @@
 import os, sys, datetime
 import logging
 
-from model import pipeline
-
 #
 # Logging initialization
 #
@@ -37,9 +35,13 @@ sys.path.insert(0, os.path.join(PYSPARK_HOME, "pyspark.zip"))
 
 from pyspark import SparkContext, SparkConf
 from pyspark.sql import functions as f
+from pyspark.sql import SparkSession
+from pyspark.sql.types import IntegerType
 
-conf = SparkConf()
-spark = SparkContext(appName="Task4", conf=conf)
+spark = SparkSession.builder.getOrCreate()
+spark.sparkContext.setLogLevel('WARN')
+
+from model import pipeline
 
 #
 # Now do something useful
@@ -56,10 +58,12 @@ vote = f.when(dataset.vote.isNull(), 0).otherwise(dataset.vote.astype(IntegerTyp
 dataset = dataset.withColumn("verified", verified)
 dataset = dataset.withColumn("vote", vote)
 dataset = dataset.drop("id", "asin", "reviewTime", "reviewerID", "summary").cache()
+logging.info("Finished preparing data")
 
 pipeline_model = pipeline.fit(dataset)
+logging.info("Finished fitting the model")
 pipeline_model.write().overwrite().save(OUTPUT_MODEL_PATH)
-
+logging.info(f"Model saved to {OUTPUT_MODEL_PATH}")
 logging.info(f"Time elapsed: {datetime.datetime.now() - start}")
 
 spark.stop()
