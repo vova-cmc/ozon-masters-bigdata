@@ -1,0 +1,4 @@
+artifact_location: file:///home/users/vova-cmc/ozon-masters-bigdata/lectures/lect8%20-%20MlFlow/mlruns/1
+experiment_id: '1'
+lifecycle_stage: active
+name: My first experiment

@@ -1,0 +1,15 @@
+artifact_uri: file:///home/users/vova-cmc/ozon-masters-bigdata/lectures/lect8%20-%20MlFlow/mlruns/0/a6b2efb3c2614254812e669c87538b0c/artifacts
+end_time: 1620289183906
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+name: ''
+run_id: a6b2efb3c2614254812e669c87538b0c
+run_uuid: a6b2efb3c2614254812e669c87538b0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1620289183808
+status: 3
+tags: []
+user_id: vova-cmc
